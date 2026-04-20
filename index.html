@@ -20,11 +20,29 @@
       background: #1a1a2e;
       color: white;
       padding: 16px 20px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       font-size: 1.2rem;
       font-weight: bold;
       letter-spacing: 0.05em;
     }
+
+    #langBtn {
+      position: absolute;
+      right: 16px;
+      padding: 5px 12px;
+      background: transparent;
+      color: white;
+      border: 1.5px solid white;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+    }
+    #langBtn:active { opacity: 0.7; }
 
     main {
       max-width: 800px;
@@ -53,7 +71,6 @@
       border-bottom: 1px solid #eee;
     }
 
-    /* Input section */
     .input-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -133,7 +150,6 @@
       margin-top: 4px;
     }
 
-    /* Materials section */
     .materials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -209,7 +225,6 @@
     .piece-toggle button.active-none { background: #9ca3af; color: white; }
     .piece-toggle button.active-t2   { background: #dc2626; color: white; }
 
-    /* Results section */
     .results-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -253,7 +268,6 @@
     .result-profit.negative { background: #fee2e2; color: #dc2626; }
     .result-profit.neutral  { background: #f3f4f6; color: #9ca3af; }
 
-    /* Reset */
     .reset-btn {
       display: block;
       width: 100%;
@@ -271,7 +285,10 @@
   </style>
 </head>
 <body>
-  <header>OB Calc</header>
+  <header>
+    OB Calc
+    <button id="langBtn">EN</button>
+  </header>
   <main>
 
     <section>
@@ -280,20 +297,20 @@
         <div>
           <div class="tower-header t1" id="towerHeader1">タワー α</div>
           <div class="input-field">
-            <label id="heightLabel">見積高さ（cm）</label>
+            <label class="height-label">見積高さ（cm）</label>
             <input type="number" id="height1" min="10" max="55" placeholder="10〜55">
           </div>
         </div>
         <div>
           <div class="tower-header t2" id="towerHeader2">タワー β</div>
           <div class="input-field">
-            <label　id="heightLabel">見積高さ（cm）</label>
+            <label class="height-label">見積高さ（cm）</label>
             <input type="number" id="height2" min="10" max="55" placeholder="10〜55">
           </div>
         </div>
       </div>
       <div class="time-field">
-        <label　id="timeLabel">提出残り時間（分）</label>
+        <label id="timeLabel">提出残り時間（分）</label>
         <input type="number" id="time" min="0" max="15" placeholder="0〜15">
       </div>
       <div class="error-msg" id="errorMsg"></div>
@@ -308,30 +325,35 @@
       <h2 id="sectionResult">計算結果</h2>
       <div class="results-grid">
         <div>
-          <div class="result-col-header t1" id="towerHeader1">タワー α</div>
-          <div class="result-row"><span class="lbl" id="reward">見積報酬</span><span class="val" id="reward1">—</span></div>
-          <div class="result-row"><span class="lbl" id="multiplier">倍率</span><span class="val" id="multiplier1">—</span></div>
-          <div class="result-row"><span class="lbl" id="sales">見積売上</span><span class="val" id="sales1">—</span></div>
-          <div class="result-row"><span class="lbl" id="purchase">購入額</span><span class="val" id="purchase1">—</span></div>
-          <div class="result-profit neutral" id="profit1" id="profit">利益: —</div>
+          <div class="result-col-header t1" id="resultHeader1">タワー α</div>
+          <div class="result-row"><span class="lbl lbl-reward">見積報酬</span><span class="val" id="reward1">—</span></div>
+          <div class="result-row"><span class="lbl lbl-multiplier">倍率</span><span class="val" id="multiplier1">—</span></div>
+          <div class="result-row"><span class="lbl lbl-sales">見積売上</span><span class="val" id="sales1">—</span></div>
+          <div class="result-row"><span class="lbl lbl-purchase">購入額</span><span class="val" id="purchase1">—</span></div>
+          <div class="result-profit neutral" id="profit1">利益: —</div>
         </div>
         <div>
-          <div class="result-col-header t2" id="towerHeader2">タワー β</div>
-          <div class="result-row"><span class="lbl" id="reward">見積報酬</span><span class="val" id="reward2">—</span></div>
-          <div class="result-row"><span class="lbl" id="multiplier">倍率</span><span class="val" id="multiplier2">—</span></div>
-          <div class="result-row"><span class="lbl" id="sales">見積売上</span><span class="val" id="sales2">—</span></div>
-          <div class="result-row"><span class="lbl" id="purchase">購入額</span><span class="val" id="purchase2">—</span></div>
-          <div class="result-profit neutral" id="profit2" id="profit">利益: —</div>
+          <div class="result-col-header t2" id="resultHeader2">タワー β</div>
+          <div class="result-row"><span class="lbl lbl-reward">見積報酬</span><span class="val" id="reward2">—</span></div>
+          <div class="result-row"><span class="lbl lbl-multiplier">倍率</span><span class="val" id="multiplier2">—</span></div>
+          <div class="result-row"><span class="lbl lbl-sales">見積売上</span><span class="val" id="sales2">—</span></div>
+          <div class="result-row"><span class="lbl lbl-purchase">購入額</span><span class="val" id="purchase2">—</span></div>
+          <div class="result-profit neutral" id="profit2">利益: —</div>
         </div>
       </div>
     </section>
 
-    <button class="reset-btn" id="resetBtn" id="reset">リセット</button>
+    <button class="reset-btn" id="resetBtn">リセット</button>
 
   </main>
 
   <script type="module">
     import { HEIGHT_TABLE, TIME_TABLE, MATERIALS } from './data.js';
+    import { i18n } from './i18n.js';
+
+    let lang = 'ja';
+
+    const profitValues = { profit1: null, profit2: null };
 
     const pieceState = {};
     MATERIALS.forEach(mat => {
@@ -355,7 +377,8 @@
 
         const nameEl = document.createElement('div');
         nameEl.className = 'material-name';
-        nameEl.textContent = mat.name;
+        nameEl.dataset.matId = mat.id;
+        nameEl.textContent = i18n[lang].materials[mat.id];
         card.appendChild(nameEl);
 
         const priceEl = document.createElement('div');
@@ -372,7 +395,8 @@
           if (mat.qty > 1) {
             const lbl = document.createElement('div');
             lbl.className = 'piece-label';
-            lbl.textContent = `${i + 1}個目`;
+            lbl.dataset.pieceNum = i + 1;
+            lbl.textContent = lang === 'ja' ? `${i + 1}${i18n.ja.pieceLabel}` : `Piece ${i + 1}`;
             togglesEl.appendChild(lbl);
           }
 
@@ -380,7 +404,7 @@
           row.className = 'piece-toggle';
           row.dataset.piece = pieceId;
 
-          [['1', 't1'], ['未', 'none'], ['2', 't2']].forEach(([label, val]) => {
+          [['α', 't1'], ['未', 'none'], ['β', 't2']].forEach(([label, val]) => {
             const btn = document.createElement('button');
             btn.textContent = label;
             btn.dataset.val = val;
@@ -403,10 +427,11 @@
     }
 
     function validate(h1, h2, t) {
+      const e = i18n[lang];
       if ([h1, h2, t].some(isNaN)) return null;
-      if (h1 < 10 || h1 > 55) return '高さ1は10〜55の範囲で入力してください';
-      if (h2 < 10 || h2 > 55) return '高さ2は10〜55の範囲で入力してください';
-      if (t < 0 || t > 15)    return '時間は0〜15の範囲で入力してください';
+      if (h1 < 10 || h1 > 55) return e.errorHeight1;
+      if (h2 < 10 || h2 > 55) return e.errorHeight2;
+      if (t < 0 || t > 15)    return e.errorTime;
       return '';
     }
 
@@ -435,22 +460,23 @@
         }
       });
 
-      document.getElementById('reward1').textContent    = fmt(reward1);
+      document.getElementById('reward1').textContent     = fmt(reward1);
       document.getElementById('multiplier1').textContent = `×${mult}`;
-      document.getElementById('sales1').textContent     = fmt(sales1);
-      document.getElementById('purchase1').textContent  = fmt(purchase1);
+      document.getElementById('sales1').textContent      = fmt(sales1);
+      document.getElementById('purchase1').textContent   = fmt(purchase1);
       setProfit('profit1', sales1 - purchase1);
 
-      document.getElementById('reward2').textContent    = fmt(reward2);
+      document.getElementById('reward2').textContent     = fmt(reward2);
       document.getElementById('multiplier2').textContent = `×${mult}`;
-      document.getElementById('sales2').textContent     = fmt(sales2);
-      document.getElementById('purchase2').textContent  = fmt(purchase2);
+      document.getElementById('sales2').textContent      = fmt(sales2);
+      document.getElementById('purchase2').textContent   = fmt(purchase2);
       setProfit('profit2', sales2 - purchase2);
     }
 
     function setProfit(id, value) {
+      profitValues[id] = value;
       const el = document.getElementById(id);
-      el.textContent = `利益: ${fmt(value)}`;
+      el.textContent = `${i18n[lang].profit}: ${fmt(value)}`;
       el.className = 'result-profit ' + (value > 0 ? 'positive' : value < 0 ? 'negative' : 'neutral');
     }
 
@@ -458,10 +484,50 @@
       ['reward1','multiplier1','sales1','purchase1','reward2','multiplier2','sales2','purchase2']
         .forEach(id => { document.getElementById(id).textContent = '—'; });
       ['profit1','profit2'].forEach(id => {
+        profitValues[id] = null;
         const el = document.getElementById(id);
-        el.textContent = '利益: —';
+        el.textContent = `${i18n[lang].profit}: —`;
         el.className = 'result-profit neutral';
       });
+    }
+
+    function applyLang() {
+      const t = i18n[lang];
+
+      document.getElementById('sectionInput').textContent    = t.sectionInput;
+      document.getElementById('sectionMaterial').textContent = t.sectionMaterial;
+      document.getElementById('sectionResult').textContent   = t.sectionResult;
+
+      document.getElementById('towerHeader1').textContent  = `${t.towerHeader} α`;
+      document.getElementById('towerHeader2').textContent  = `${t.towerHeader} β`;
+      document.getElementById('resultHeader1').textContent = `${t.towerHeader} α`;
+      document.getElementById('resultHeader2').textContent = `${t.towerHeader} β`;
+
+      document.querySelectorAll('.height-label').forEach(el  => { el.textContent = t.heightLabel; });
+      document.getElementById('timeLabel').textContent = t.timeLabel;
+
+      document.querySelectorAll('.lbl-reward').forEach(el    => { el.textContent = t.reward; });
+      document.querySelectorAll('.lbl-multiplier').forEach(el => { el.textContent = t.multiplier; });
+      document.querySelectorAll('.lbl-sales').forEach(el     => { el.textContent = t.sales; });
+      document.querySelectorAll('.lbl-purchase').forEach(el  => { el.textContent = t.purchase; });
+
+      document.querySelectorAll('.material-name').forEach(el => {
+        el.textContent = t.materials[el.dataset.matId];
+      });
+
+      document.querySelectorAll('.piece-label').forEach(el => {
+        const num = el.dataset.pieceNum;
+        el.textContent = lang === 'ja' ? `${num}${t.pieceLabel}` : `Piece ${num}`;
+      });
+
+      ['profit1', 'profit2'].forEach(id => {
+        const el = document.getElementById(id);
+        const val = profitValues[id];
+        el.textContent = val !== null ? `${t.profit}: ${fmt(val)}` : `${t.profit}: —`;
+      });
+
+      document.getElementById('resetBtn').textContent = t.reset;
+      document.getElementById('langBtn').textContent  = t.langBtn;
     }
 
     function resetAll() {
@@ -481,6 +547,11 @@
 
       clearResults();
     }
+
+    document.getElementById('langBtn').addEventListener('click', () => {
+      lang = lang === 'ja' ? 'en' : 'ja';
+      applyLang();
+    });
 
     ['height1', 'height2', 'time'].forEach(id => {
       document.getElementById(id).addEventListener('input', calculate);

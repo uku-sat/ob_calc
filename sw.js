@@ -3,6 +3,7 @@ const ASSETS = [
   './',
   './index.html',
   './data.js',
+  './i18n.js',
   './images/rectangle.webp',
   './images/rectangleHollow.webp',
   './images/squarePillar.webp',
