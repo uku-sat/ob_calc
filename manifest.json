@@ -1,0 +1,9 @@
+{
+  "name": "OB Calc",
+  "short_name": "OB Calc",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f0f2f5",
+  "theme_color": "#1a1a2e",
+  "icons": []
+}
