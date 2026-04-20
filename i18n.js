@@ -35,9 +35,9 @@ export const i18n = {
     errorTime:    '時間は0〜15の範囲で入力してください',
   },
   en: {
-    sectionInput:    'Estimate',
-    sectionMaterial: 'Purchase',
-    sectionResult:   'Result',
+    sectionInput:    'Estimate Input',
+    sectionMaterial: 'Materials',
+    sectionResult:   'Results',
 
     towerHeader:  'Tower',
     heightLabel:  'Estimated Height (cm)',
