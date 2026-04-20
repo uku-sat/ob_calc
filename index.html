@@ -275,58 +275,58 @@
   <main>
 
     <section>
-      <h2>見積入力</h2>
+      <h2 id="sectionInput">見積入力</h2>
       <div class="input-grid">
         <div>
-          <div class="tower-header t1">タワー 1</div>
+          <div class="tower-header t1" id="towerHeader1">タワー α</div>
           <div class="input-field">
-            <label>見積高さ（cm）</label>
+            <label id="heightLabel">見積高さ（cm）</label>
             <input type="number" id="height1" min="10" max="55" placeholder="10〜55">
           </div>
         </div>
         <div>
-          <div class="tower-header t2">タワー 2</div>
+          <div class="tower-header t2" id="towerHeader2">タワー β</div>
           <div class="input-field">
-            <label>見積高さ（cm）</label>
+            <label　id="heightLabel">見積高さ（cm）</label>
             <input type="number" id="height2" min="10" max="55" placeholder="10〜55">
           </div>
         </div>
       </div>
       <div class="time-field">
-        <label>提出残り時間（分）</label>
+        <label　id="timeLabel">提出残り時間（分）</label>
         <input type="number" id="time" min="0" max="15" placeholder="0〜15">
       </div>
       <div class="error-msg" id="errorMsg"></div>
     </section>
 
     <section>
-      <h2>使用資材</h2>
+      <h2 id="sectionMaterial">使用資材</h2>
       <div class="materials-grid" id="materialsGrid"></div>
     </section>
 
     <section>
-      <h2>計算結果</h2>
+      <h2 id="sectionResult">計算結果</h2>
       <div class="results-grid">
         <div>
-          <div class="result-col-header t1">タワー 1</div>
-          <div class="result-row"><span class="lbl">見積報酬</span><span class="val" id="reward1">—</span></div>
-          <div class="result-row"><span class="lbl">倍率</span><span class="val" id="multiplier1">—</span></div>
-          <div class="result-row"><span class="lbl">見積売上</span><span class="val" id="sales1">—</span></div>
-          <div class="result-row"><span class="lbl">購入額</span><span class="val" id="purchase1">—</span></div>
-          <div class="result-profit neutral" id="profit1">利益: —</div>
+          <div class="result-col-header t1" id="towerHeader1">タワー α</div>
+          <div class="result-row"><span class="lbl" id="reward">見積報酬</span><span class="val" id="reward1">—</span></div>
+          <div class="result-row"><span class="lbl" id="multiplier">倍率</span><span class="val" id="multiplier1">—</span></div>
+          <div class="result-row"><span class="lbl" id="sales">見積売上</span><span class="val" id="sales1">—</span></div>
+          <div class="result-row"><span class="lbl" id="purchase">購入額</span><span class="val" id="purchase1">—</span></div>
+          <div class="result-profit neutral" id="profit1" id="profit">利益: —</div>
         </div>
         <div>
-          <div class="result-col-header t2">タワー 2</div>
-          <div class="result-row"><span class="lbl">見積報酬</span><span class="val" id="reward2">—</span></div>
-          <div class="result-row"><span class="lbl">倍率</span><span class="val" id="multiplier2">—</span></div>
-          <div class="result-row"><span class="lbl">見積売上</span><span class="val" id="sales2">—</span></div>
-          <div class="result-row"><span class="lbl">購入額</span><span class="val" id="purchase2">—</span></div>
-          <div class="result-profit neutral" id="profit2">利益: —</div>
+          <div class="result-col-header t2" id="towerHeader2">タワー β</div>
+          <div class="result-row"><span class="lbl" id="reward">見積報酬</span><span class="val" id="reward2">—</span></div>
+          <div class="result-row"><span class="lbl" id="multiplier">倍率</span><span class="val" id="multiplier2">—</span></div>
+          <div class="result-row"><span class="lbl" id="sales">見積売上</span><span class="val" id="sales2">—</span></div>
+          <div class="result-row"><span class="lbl" id="purchase">購入額</span><span class="val" id="purchase2">—</span></div>
+          <div class="result-profit neutral" id="profit2" id="profit">利益: —</div>
         </div>
       </div>
     </section>
 
-    <button class="reset-btn" id="resetBtn">リセット</button>
+    <button class="reset-btn" id="resetBtn" id="reset">リセット</button>
 
   </main>
 
