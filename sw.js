@@ -1,18 +1,18 @@
-const CACHE_NAME = 'ob-calc-v1';
+const CACHE_NAME = 'ob-calc-v2';
 const ASSETS = [
   './',
   './index.html',
   './data.js',
   './i18n.js',
-  './images/rectangle.webp',
-  './images/rectangleHollow.webp',
-  './images/squarePillar.webp',
-  './images/roundPillar.webp',
-  './images/largeTri.webp',
-  './images/smallTri.webp',
-  './images/square.webp',
-  './images/circle.webp',
-  './images/halfCircle.webp',
+  './images/rectangle.jpeg',
+  './images/rectangleHollow.jpeg',
+  './images/squarePillar.jpeg',
+  './images/roundPillar.jpeg',
+  './images/largeTri.jpeg',
+  './images/smallTri.jpeg',
+  './images/square.jpeg',
+  './images/circle.jpeg',
+  './images/halfCircle.jpeg',
 ];
 
 self.addEventListener('install', e => {
