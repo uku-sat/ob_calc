@@ -8,6 +8,8 @@ export const i18n = {
     heightLabel:  '見積高さ（cm）',
     timeLabel:    '提出残り時間（分）',
 
+    dispHeight: '見積高さ',
+    dispTime:   '提出残り時間',
     reward:     '見積報酬',
     multiplier: '倍率',
     sales:      '見積売上',
@@ -43,6 +45,8 @@ export const i18n = {
     heightLabel:  'Estimated Height (cm)',
     timeLabel:    'Time Remaining (min)',
 
+    dispHeight: 'Estimated Height',
+    dispTime:   'Time Remaining',
     reward:     'Estimated Reward',
     multiplier: 'Multiplier',
     sales:      'Estimated Sales',

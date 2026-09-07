@@ -326,7 +326,9 @@
       <div class="results-grid">
         <div>
           <div class="result-col-header t1" id="resultHeader1">タワー α</div>
+          <div class="result-row"><span class="lbl lbl-disp-height">見積高さ</span><span class="val" id="dispHeight1">—</span></div>
           <div class="result-row"><span class="lbl lbl-reward">見積報酬</span><span class="val" id="reward1">—</span></div>
+          <div class="result-row"><span class="lbl lbl-disp-time">提出残り時間</span><span class="val" id="dispTime1">—</span></div>
           <div class="result-row"><span class="lbl lbl-multiplier">倍率</span><span class="val" id="multiplier1">—</span></div>
           <div class="result-row"><span class="lbl lbl-sales">見積売上</span><span class="val" id="sales1">—</span></div>
           <div class="result-row"><span class="lbl lbl-purchase">購入額</span><span class="val" id="purchase1">—</span></div>
@@ -334,7 +336,9 @@
         </div>
         <div>
           <div class="result-col-header t2" id="resultHeader2">タワー β</div>
+          <div class="result-row"><span class="lbl lbl-disp-height">見積高さ</span><span class="val" id="dispHeight2">—</span></div>
           <div class="result-row"><span class="lbl lbl-reward">見積報酬</span><span class="val" id="reward2">—</span></div>
+          <div class="result-row"><span class="lbl lbl-disp-time">提出残り時間</span><span class="val" id="dispTime2">—</span></div>
           <div class="result-row"><span class="lbl lbl-multiplier">倍率</span><span class="val" id="multiplier2">—</span></div>
           <div class="result-row"><span class="lbl lbl-sales">見積売上</span><span class="val" id="sales2">—</span></div>
           <div class="result-row"><span class="lbl lbl-purchase">購入額</span><span class="val" id="purchase2">—</span></div>
@@ -460,6 +464,11 @@
         }
       });
 
+      document.getElementById('dispHeight1').textContent  = `${h1} cm`;
+      document.getElementById('dispHeight2').textContent  = `${h2} cm`;
+      document.getElementById('dispTime1').textContent    = `${t} 分`;
+      document.getElementById('dispTime2').textContent    = `${t} 分`;
+
       document.getElementById('reward1').textContent     = fmt(reward1);
       document.getElementById('multiplier1').textContent = `×${mult}`;
       document.getElementById('sales1').textContent      = fmt(sales1);
@@ -481,7 +490,8 @@
     }
 
     function clearResults() {
-      ['reward1','multiplier1','sales1','purchase1','reward2','multiplier2','sales2','purchase2']
+      ['dispHeight1','dispHeight2','dispTime1','dispTime2',
+       'reward1','multiplier1','sales1','purchase1','reward2','multiplier2','sales2','purchase2']
         .forEach(id => { document.getElementById(id).textContent = '—'; });
       ['profit1','profit2'].forEach(id => {
         profitValues[id] = null;
@@ -505,6 +515,9 @@
 
       document.querySelectorAll('.height-label').forEach(el  => { el.textContent = t.heightLabel; });
       document.getElementById('timeLabel').textContent = t.timeLabel;
+
+      document.querySelectorAll('.lbl-disp-height').forEach(el => { el.textContent = t.dispHeight; });
+      document.querySelectorAll('.lbl-disp-time').forEach(el   => { el.textContent = t.dispTime; });
 
       document.querySelectorAll('.lbl-reward').forEach(el    => { el.textContent = t.reward; });
       document.querySelectorAll('.lbl-multiplier').forEach(el => { el.textContent = t.multiplier; });
